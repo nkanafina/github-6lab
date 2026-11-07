@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Өрмекші адам | Менің сүйікті кейіпкерім</title>
+
+    <style>
+
+        /* БАРЛЫҚ ЭЛЕМЕНТТЕР */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080d1b;
+            color: white;
+        }
+
+        /* ЖОҒАРҒЫ МӘЗІР */
+
+        header {
+            width: 100%;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #101a32;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #263b61;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #65c7ff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #65c7ff;
+        }
+
+        /* БАСТЫ БЕТ */
+
+        .main {
+            min-height: 650px;
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+
+            background:
+                radial-gradient(circle at 80% 40%,
+                #263e75, #080d1b 65%);
+        }
+
+        .main-text {
+            max-width: 600px;
+        }
+
+        .main-text h4 {
+            color: #65c7ff;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .main-text h1 {
+            font-size: 65px;
+            margin-bottom: 25px;
+        }
+
+        .main-text p {
+            color: #c5cee0;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #438cff;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #725cff;
+            transform: translateY(-5px);
+        }
+
+        /* БАСТЫ СУРЕТ */
+
+        .main-image {
+            width: 380px;
+            height: 480px;
+            border-radius: 25px;
+            overflow: hidden;
+            border: 3px solid #438cff;
+            box-shadow: 0 0 40px #438cff66;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ОРТАҚ БӨЛІМДЕР */
+
+        section {
+            padding: 85px 8%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            text-align: center;
+            color: #aebbd3;
+            margin-bottom: 45px;
+        }
+
+        /* КЕЙІПКЕР ТУРАЛЫ */
+
+        .about {
+            background: #101a32;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .about-image {
+            width: 40%;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text {
+            flex: 1;
+            color: #c8d3e7;
+            font-size: 17px;
+            line-height: 2;
+        }
+
+        .about-text h2 {
+            color: #65c7ff;
+            margin-bottom: 20px;
+        }
+
+        /* ҚАБІЛЕТТЕР */
+
+        .cards {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #142342;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #293e65;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #65c7ff;
+            box-shadow: 0 10px 30px #438cff22;
+        }
+
+        .card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #65c7ff;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #c0cce0;
+            line-height: 1.7;
+        }
+
+        /* ӨМІРІ МЕН ТАРИХЫ */
+
+        .history {
+            background: #101a32;
+        }
+
+        .history-content {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .history-item {
+            padding: 25px;
+            margin-bottom: 20px;
+            background: #172744;
+            border-left: 4px solid #438cff;
+            border-radius: 10px;
+        }
+
+        .history-item h3 {
+            color: #65c7ff;
+            margin-bottom: 10px;
+        }
+
+        .history-item p {
+            color: #c8d3e7;
+            line-height: 1.8;
+        }
+
+        /* СУРЕТТЕР ГАЛЕРЕЯСЫ */
+
+        .gallery {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 18px;
+            transition: 0.4s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.04);
+        }
+
+        /* ҚОРЫТЫНДЫ */
+
+        .quote {
+            text-align: center;
+            padding: 85px 12%;
+            background: linear-gradient(
+                120deg, #17345f, #39245f
+            );
+        }
+
+        .quote h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .quote p {
+            font-size: 21px;
+            color: #dce7ff;
+            line-height: 1.8;
+        }
+
+        /* БАЙЛАНЫС */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #bdc9df;
+            margin-bottom: 25px;
+        }
+
+        /* ТӨМЕНГІ БӨЛІМ */
+
+        footer {
+            padding: 30px;
+            background: #050914;
+            text-align: center;
+            color: #9ba9c4;
+        }
+
+        /* ТЕЛЕФОНҒА БЕЙІМДЕУ */
+
+        @media (max-width: 800px) {
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 13px;
+            }
+
+            .main {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .main-text h1 {
+                font-size: 43px;
+            }
+
+            .main-image {
+                width: 290px;
+                height: 370px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image {
+                width: 100%;
+            }
+
+            .title {
+                font-size: 29px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ЖОҒАРҒЫ МӘЗІР -->
+
+    <header>
+
+        <div class="logo">
+            ✦ HERO WORLD
+        </div>
+
+        <nav>
+            <a href="#home">Басты бет</a>
+            <a href="#about">Кейіпкер</a>
+            <a href="#powers">Қабілеттері</a>
+            <a href="#history">Тарихы</a>
+            <a href="#gallery">Галерея</a>
+        </nav>
+
+    </header>
+
+
+    <!-- БАСТЫ БЕТ -->
+
+    <div class="main" id="home">
+
+        <div class="main-text">
+
+            <h4>МЕНІҢ СҮЙІКТІ КЕЙІПКЕРІМ</h4>
+
+            <h1>Өрмекші адам</h1>
+
+            <p>
+                Қала қорғаушысы, батыл әрі мейірімді
+                суперқаһарман. Ол өзінің ерекше
+                қабілеттерін адамдарға көмектесу үшін
+                пайдаланады.
+            </p>
+
+            <a href="#about" class="button">
+                Кейіпкерді таныстыру →
+            </a>
+
+        </div>
+
+        <div class="main-image">
+
+            <img src="C:\Users\kusar\Downloads\images (2).jpg"
+                 alt="Өрмекші адамның суреті">
+
+        </div>
+
+    </div>
+
+
+    <!-- КЕЙІПКЕР ТУРАЛЫ АҚПАРАТ -->
+
+    <section class="about" id="about">
+
+        <h2 class="title">
+            Кейіпкер туралы
+        </h2>
+
+        <p class="description">
+            Өрмекші адамның өмірі мен ерекшеліктері
+        </p>
+
+        <div class="about-content">
+
+            <div class="about-image">
+
+                <img src="C:\Users\kusar\Downloads\images 3.jpg"
+                     alt="Өрмекші адам">
+
+            </div>
+
+            <div class="about-text">
+
+                <h2>Питер Паркер</h2>
+
+                <p>
+                    Өрмекші адам – Marvel әлеміндегі
+                    ең танымал суперқаһармандардың бірі.
+                    Оның шын есімі – Питер Паркер.
+                </p>
+
+                <p>
+                    Ол Нью-Йорк қаласында өмір сүретін
+                    қарапайым жас жігіт. Бір күні ерекше
+                    өрмекші шаққаннан кейін оның бойында
+                    ерекше қабілеттер пайда болады.
+                </p>
+
+                <p>
+                    Питер өз күшін адамдарға көмектесу
+                    және қаланы қорғау үшін қолданады.
+                    Ол батылдықтың, мейірімділіктің және
+                    жауапкершіліктің символы.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ЕРЕКШЕ ҚАБІЛЕТТЕРІ -->
+
+    <section id="powers">
+
+        <h2 class="title">
+            Ерекше қабілеттері
+        </h2>
+
+        <p class="description">
+            Өрмекші адамның негізгі суперқабілеттері
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">🕸️</div>
+
+                <h3>Өрмекші торы</h3>
+
+                <p>
+                    Арнайы тор арқылы биік ғимараттар
+                    арасында қозғала алады.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">💪</div>
+
+                <h3>Күш-қуат</h3>
+
+                <p>
+                    Оның физикалық күші қарапайым
+                    адамдардан әлдеқайда жоғары.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">⚡</div>
+
+                <h3>Жылдамдық</h3>
+
+                <p>
+                    Қауіпті жағдайларда жылдам
+                    әрекет етіп, кедергілерден жалтара алады.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">👁️</div>
+
+                <h3>Өрмекші сезімі</h3>
+
+                <p>
+                    Қауіпті алдын ала сезіп,
+                    айналасындағы өзгерістерді байқайды.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ТАРИХЫ -->
+
+    <section class="history" id="history">
+
+        <h2 class="title">
+            Кейіпкердің тарихы
+        </h2>
+
+        <p class="description">
+            Өрмекші адамның өміріндегі маңызды кезеңдер
+        </p>
+
+        <div class="history-content">
+
+            <div class="history-item">
+
+                <h3>01. Балалық шағы</h3>
+
+                <p>
+                    Питер Паркер Нью-Йоркте өсіп,
+                    ғылым мен технологияға қызығушылық
+                    танытқан.
+                </p>
+
+            </div>
+
+
+            <div class="history-item">
+
+                <h3>02. Ерекше қабілеттер</h3>
+
+                <p>
+                    Ерекше өрмекші шаққаннан кейін
+                    оның бойында жаңа қабілеттер пайда болды.
+                </p>
+
+            </div>
+
+
+            <div class="history-item">
+
+                <h3>03. Суперқаһарманға айналуы</h3>
+
+                <p>
+                    Ол өзінің қабілеттерін адамдарға
+                    көмектесу үшін пайдалануды шешті.
+                </p>
+
+            </div>
+
+
+            <div class="history-item">
+
+                <h3>04. Қала қорғаушысы</h3>
+
+                <p>
+                    Питер Паркер қала тұрғындарын
+                    қорғап, көптеген қиындықтарды жеңеді.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- СУРЕТТЕР ГАЛЕРЕЯСЫ -->
+
+    <section id="gallery">
+
+        <h2 class="title">
+            Суреттер галереясы
+        </h2>
+
+        <p class="description">
+            Өрмекші адамның ерекше әлемі
+        </p>
+
+        <div class="gallery">
+
+            <img src="C:\Users\kusar\Downloads\Spider-Man_Marvel.jpg"
+                 alt="Өрмекші адам 1">
+
+            <img src="C:\Users\kusar\Downloads\images.jpg"
+                 alt="Өрмекші адам 2">
+
+            <img src="C:\Users\kusar\Downloads\images (1).jpg"
+                 alt="Өрмекші адам 3">
+
+        </div>
+
+    </section>
+
+
+
+
+    <div class="quote">
+
+        <h2>Нағыз батырлық дегеніміз не?</h2>
+
+        <p>
+            Нағыз батырлық – өзгелерге көмектесу,
+            қиындыққа мойымау және өз жауапкершілігіңді
+            түсіну.
+        </p>
+
+    </div>
+
+
+    <!-- БАЙЛАНЫС -->
+
+    <section class="contact">
+
+        <h2 class="title">
+            Назарларыңызға рақмет!
+        </h2>
+
+        <p>
+            Бұл сайт менің сүйікті комикс кейіпкеріме
+            арналған.
+        </p>
+
+        <a href="#home" class="button">
+            Басты бетке оралу ↑
+        </a>
+
+    </section>
+
+
+
+    <footer>
+
+        <p>
+            © 2026 HERO WORLD
+        </p>
+
+        <p>
+            HTML және CSS көмегімен жасалды
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
